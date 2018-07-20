@@ -527,15 +527,11 @@ You can see the best batch size for cross loss is **64** with cross accuracy: 98
 
 ### 3. choose epoch num
 
-I want to choose 128 as my batch size
-
-Look above loss history, maybe 10 epoches is ok for batchsize 128.
-
 
 ```python
 learning_rate = 0.001
 batch_size_list = 128
-epochs_num = 10
+epochs_num = 20
 
 train_loss, train_ac, cross_loss, cross_ac = train(X_train, y_train, X_cross, y_cross, 
                                                    learning_rate, bs, epochs_num)
@@ -544,47 +540,129 @@ print('\nCross accuracy:', cross_ac)
 
 ```
 
-    Epoch  1  /  10 : 
-    - Train loss:  70.6404230594635 , Train ac:  94.95502710342407
-    - Cross loss:  0.18196298 , Cross ac:  94.69047784805298
-    Epoch  2  /  10 : 
-    - Train loss:  21.59485862404108 , Train ac:  96.27248644828796
-    - Cross loss:  0.12909764 , Cross ac:  96.14285826683044
-    Epoch  3  /  10 : 
-    - Train loss:  16.256605494767427 , Train ac:  97.25925922393799
-    - Cross loss:  0.09911183 , Cross ac:  97.04762101173401
-    Epoch  4  /  10 : 
-    - Train loss:  12.901180043816566 , Train ac:  97.58465886116028
-    - Cross loss:  0.08751819 , Cross ac:  97.6190447807312
-    Epoch  5  /  10 : 
-    - Train loss:  10.891077367588878 , Train ac:  97.97089695930481
-    - Cross loss:  0.072297886 , Cross ac:  97.85714149475098
-    Epoch  6  /  10 : 
-    - Train loss:  9.189989306032658 , Train ac:  98.35449457168579
-    - Cross loss:  0.06261902 , Cross ac:  98.04762005805969
-    Epoch  7  /  10 : 
-    - Train loss:  8.12825033441186 , Train ac:  98.49470853805542
-    - Cross loss:  0.071467064 , Cross ac:  97.90475964546204
-    Epoch  8  /  10 : 
-    - Train loss:  7.795649344101548 , Train ac:  98.43915104866028
-    - Cross loss:  0.06094667 , Cross ac:  98.11905026435852
-    Epoch  9  /  10 : 
-    - Train loss:  6.960518205538392 , Train ac:  98.71957898139954
-    - Cross loss:  0.06617913 , Cross ac:  98.35714101791382
-    Epoch  10  /  10 : 
-    - Train loss:  6.458444133400917 , Train ac:  98.85714054107666
-    - Cross loss:  0.057020467 , Cross ac:  98.38095307350159
+    Epoch  1  /  20 : 
+    - Train loss:  71.58859105408192 , Train ac:  94.27777528762817
+    - Cross loss:  0.1959934 , Cross ac:  93.92856955528259
+    Epoch  2  /  20 : 
+    - Train loss:  22.98341851681471 , Train ac:  96.32539749145508
+    - Cross loss:  0.13656352 , Cross ac:  96.21428847312927
+    Epoch  3  /  20 : 
+    - Train loss:  16.658662535250187 , Train ac:  96.83068990707397
+    - Cross loss:  0.1174908 , Cross ac:  96.71428799629211
+    Epoch  4  /  20 : 
+    - Train loss:  13.932770788669586 , Train ac:  97.58994579315186
+    - Cross loss:  0.09165271 , Cross ac:  97.4047601222992
+    Epoch  5  /  20 : 
+    - Train loss:  11.701462026685476 , Train ac:  97.83597588539124
+    - Cross loss:  0.08339448 , Cross ac:  97.54762053489685
+    Epoch  6  /  20 : 
+    - Train loss:  10.252482263371348 , Train ac:  98.19047451019287
+    - Cross loss:  0.079214625 , Cross ac:  97.90475964546204
+    Epoch  7  /  20 : 
+    - Train loss:  8.836864080280066 , Train ac:  98.25661182403564
+    - Cross loss:  0.06418707 , Cross ac:  97.97618985176086
+    Epoch  8  /  20 : 
+    - Train loss:  8.050601959228516 , Train ac:  98.5370397567749
+    - Cross loss:  0.063580446 , Cross ac:  98.09523820877075
+    Epoch  9  /  20 : 
+    - Train loss:  7.666507571935654 , Train ac:  98.44973683357239
+    - Cross loss:  0.06088674 , Cross ac:  98.19047451019287
+    Epoch  10  /  20 : 
+    - Train loss:  6.907022809609771 , Train ac:  98.68254065513611
+    - Cross loss:  0.061783448 , Cross ac:  98.23809266090393
+    Epoch  11  /  20 : 
+    - Train loss:  6.260113223455846 , Train ac:  98.78836274147034
+    - Cross loss:  0.058563277 , Cross ac:  98.30952286720276
+    Epoch  12  /  20 : 
+    - Train loss:  5.813939538784325 , Train ac:  98.93651008605957
+    - Cross loss:  0.06068078 , Cross ac:  98.30952286720276
+    Epoch  13  /  20 : 
+    - Train loss:  5.820551614277065 , Train ac:  98.91005158424377
+    - Cross loss:  0.06299274 , Cross ac:  98.5952377319336
+    Epoch  14  /  20 : 
+    - Train loss:  5.310741845984012 , Train ac:  99.00529384613037
+    - Cross loss:  0.055821825 , Cross ac:  98.57142567634583
+    Epoch  15  /  20 : 
+    - Train loss:  4.702702095732093 , Train ac:  98.92857074737549
+    - Cross loss:  0.05790845 , Cross ac:  98.42857122421265
+    Epoch  16  /  20 : 
+    - Train loss:  4.697872545104474 , Train ac:  98.85450005531311
+    - Cross loss:  0.065417334 , Cross ac:  98.11905026435852
+    Epoch  17  /  20 : 
+    - Train loss:  4.360991762951016 , Train ac:  99.11110997200012
+    - Cross loss:  0.054789234 , Cross ac:  98.50000143051147
+    Epoch  18  /  20 : 
+    - Train loss:  4.071997006423771 , Train ac:  99.19312000274658
+    - Cross loss:  0.053867396 , Cross ac:  98.4761893749237
+    Epoch  19  /  20 : 
+    - Train loss:  4.019924886990339 , Train ac:  99.24338459968567
+    - Cross loss:  0.060238097 , Cross ac:  98.38095307350159
+    Epoch  20  /  20 : 
+    - Train loss:  3.828848159406334 , Train ac:  99.33862686157227
+    - Cross loss:  0.056270897 , Cross ac:  98.35714101791382
     
-    Cross accuracy: 98.38095307350159
+    Cross accuracy: 98.35714101791382
 
 
-## Output test data
+Look above loss history, maybe 13 epoches is ok for batchsize 128.
 
 
 ```python
-test_data = pd.read_csv("all/test.csv")
-test_data = test_data.values.reshape(-1, 28, 28, 1) / 255
+learning_rate = 0.001
+batch_size_list = 128
+epochs_num = 13
+
+train_loss, train_ac, cross_loss, cross_ac = train(X_train, y_train, X_cross, y_cross, 
+                                                   learning_rate, bs, epochs_num)
+
+print('\nCross accuracy:', cross_ac)
+
 ```
+
+    Epoch  1  /  13 : 
+    - Train loss:  76.33140078186989 , Train ac:  94.07936334609985
+    - Cross loss:  0.20585127 , Cross ac:  93.92856955528259
+    Epoch  2  /  13 : 
+    - Train loss:  25.05654550343752 , Train ac:  95.67460417747498
+    - Cross loss:  0.14550412 , Cross ac:  95.71428298950195
+    Epoch  3  /  13 : 
+    - Train loss:  17.761835731565952 , Train ac:  96.92327976226807
+    - Cross loss:  0.11209433 , Cross ac:  96.83333039283752
+    Epoch  4  /  13 : 
+    - Train loss:  15.016760770231485 , Train ac:  97.4047601222992
+    - Cross loss:  0.09533734 , Cross ac:  97.2857117652893
+    Epoch  5  /  13 : 
+    - Train loss:  12.63373601064086 , Train ac:  97.66402244567871
+    - Cross loss:  0.09395744 , Cross ac:  97.35714197158813
+    Epoch  6  /  13 : 
+    - Train loss:  10.82520467042923 , Train ac:  98.0899453163147
+    - Cross loss:  0.072106585 , Cross ac:  97.9285717010498
+    Epoch  7  /  13 : 
+    - Train loss:  10.300339573994279 , Train ac:  98.1243371963501
+    - Cross loss:  0.07369041 , Cross ac:  97.64285683631897
+    Epoch  8  /  13 : 
+    - Train loss:  8.816265372559428 , Train ac:  98.24073910713196
+    - Cross loss:  0.083184406 , Cross ac:  97.57142663002014
+    Epoch  9  /  13 : 
+    - Train loss:  8.347550366073847 , Train ac:  98.57142567634583
+    - Cross loss:  0.065192744 , Cross ac:  98.07142615318298
+    Epoch  10  /  13 : 
+    - Train loss:  7.6105510257184505 , Train ac:  98.7063467502594
+    - Cross loss:  0.07026129 , Cross ac:  98.16666841506958
+    Epoch  11  /  13 : 
+    - Train loss:  6.6899468544870615 , Train ac:  98.7063467502594
+    - Cross loss:  0.05648816 , Cross ac:  98.42857122421265
+    Epoch  12  /  13 : 
+    - Train loss:  6.1589010478928685 , Train ac:  98.78306984901428
+    - Cross loss:  0.04955118 , Cross ac:  98.52380752563477
+    Epoch  13  /  13 : 
+    - Train loss:  5.88525475282222 , Train ac:  98.75397086143494
+    - Cross loss:  0.061929133 , Cross ac:  98.19047451019287
+    
+    Cross accuracy: 98.19047451019287
+
+
+## Output test data
 
 
 ```python
@@ -599,6 +677,12 @@ def predict_test_data():
     saver.restore(sess, 'ckpt/digit_recog.ckpt')
     result = sess.run(y, feed_dict={X: test_data})
     return result
+```
+
+
+```python
+test_data = pd.read_csv("all/test.csv")
+test_data = test_data.values.reshape(-1, 28, 28, 1) / 255
 ```
 
 
@@ -627,7 +711,7 @@ g = plt.imshow(test_data[i].reshape(28, 28))
 
 
 
-![png](output_30_1.png)
+![png](output_31_1.png)
 
 
 
@@ -636,7 +720,7 @@ g = plt.imshow(test_data[i].reshape(28, 28))
 output_test_data(result, "result.csv")
 ```
 
-## Data Argumentation (w.i.p)
+## Data Argumentation
 
 Since my best score for testdata is 0.98985 and, I want to try data argumentation.
 
@@ -675,7 +759,7 @@ def train_with_argumentaion(X_train, y_train, X_cross, y_cross, learning_rate, b
     sess = tf.Session()
     sess.run(tf.global_variables_initializer())
     
-    loss_history = []
+    max_cross_ac = 0
     for epoch in range(epochs_num):
         # shuffle data
         
@@ -704,13 +788,87 @@ def train_with_argumentaion(X_train, y_train, X_cross, y_cross, learning_rate, b
     return epoch_loss, train_ac, cross_loss, cross_ac
 ```
 
+    Using TensorFlow backend.
+
+
 
 ```python
 learning_rate = 0.001
 batch_size = 128
-epochs_num = 10
+epochs_num = 13
 
 train_loss, train_ac, cross_loss, cross_ac = train_with_argumentaion(X_train, y_train, X_cross, y_cross, 
-                                                                     lr, bs, epochs_num)
+                                                                     learning_rate, batch_size, epochs_num)
 
 ```
+
+    Epoch  1  /  13 : 
+    - Train loss:  204.4436512887478 , Train ac:  94.28571462631226
+    - Cross loss:  0.18660966 , Cross ac:  94.80952620506287
+    Epoch  2  /  13 : 
+    - Train loss:  89.4371302574873 , Train ac:  96.16402387619019
+    - Cross loss:  0.115885675 , Cross ac:  96.42857313156128
+    Epoch  3  /  13 : 
+    - Train loss:  68.7021341919899 , Train ac:  97.22751379013062
+    - Cross loss:  0.08891035 , Cross ac:  97.42857217788696
+    Epoch  4  /  13 : 
+    - Train loss:  56.09951478242874 , Train ac:  96.74338698387146
+    - Cross loss:  0.09676476 , Cross ac:  97.23809361457825
+    Epoch  5  /  13 : 
+    - Train loss:  49.5571723356843 , Train ac:  97.61375784873962
+    - Cross loss:  0.07357875 , Cross ac:  98.04762005805969
+    Epoch  6  /  13 : 
+    - Train loss:  45.47972438111901 , Train ac:  97.57142663002014
+    - Cross loss:  0.07228143 , Cross ac:  98.04762005805969
+    Epoch  7  /  13 : 
+    - Train loss:  40.96763815358281 , Train ac:  97.88095355033875
+    - Cross loss:  0.06333266 , Cross ac:  98.19047451019287
+    Epoch  8  /  13 : 
+    - Train loss:  39.396627116948366 , Train ac:  98.07142615318298
+    - Cross loss:  0.059888 , Cross ac:  98.23809266090393
+    Epoch  9  /  13 : 
+    - Train loss:  36.2409634552896 , Train ac:  98.21428656578064
+    - Cross loss:  0.057727624 , Cross ac:  98.28571677207947
+    Epoch  10  /  13 : 
+    - Train loss:  34.25072286091745 , Train ac:  98.23015928268433
+    - Cross loss:  0.059595328 , Cross ac:  98.38095307350159
+    Epoch  11  /  13 : 
+    - Train loss:  32.062802432104945 , Train ac:  98.32010865211487
+    - Cross loss:  0.059703454 , Cross ac:  98.2619047164917
+    Epoch  12  /  13 : 
+    - Train loss:  29.967366168275476 , Train ac:  98.49735498428345
+    - Cross loss:  0.049443092 , Cross ac:  98.50000143051147
+    Epoch  13  /  13 : 
+    - Train loss:  28.597607959993184 , Train ac:  98.4761893749237
+    - Cross loss:  0.058937944 , Cross ac:  98.45238327980042
+
+
+
+```python
+test_data = pd.read_csv("all/test.csv")
+test_data = test_data.values.reshape(-1, 28, 28, 1) / 255
+
+
+result = predict_test_data()
+
+# show one of result
+i = 42
+print(result[i])
+g = plt.imshow(test_data[i].reshape(28, 28))
+```
+
+    INFO:tensorflow:Restoring parameters from ckpt/digit_recog.ckpt
+    4
+
+
+
+![png](output_36_1.png)
+
+
+
+```python
+# output
+output_test_data(result, "result-argu.csv")
+```
+
+Use argumentation, the accuracy reach 0.99100!
