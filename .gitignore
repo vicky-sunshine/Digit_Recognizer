@@ -1,0 +1,9 @@
+# macos
+.DS_Store
+
+# ipython and model check point
+.ipynb_checkpoints
+ckpt
+
+# test result
+result.csv
